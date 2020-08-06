@@ -12,7 +12,7 @@ We have no restrictions on the technology used in the solution other than those 
 ## What is your preference for the solution model type, such as “black box” models?
 
 - You can submit whatever type of solution you choose, as long as it fulfills the criteria listed on the [challenge website](https://www.challenge.gov/challenge/GSA-artificial-intelligence-AI-machine-learning-ML-challenge/).
-! 
+ 
 - In the Accuracy and Technical Evaluation section of the [Scoring Rubric](reference/AI_ML%20Challenge%20Scoring%20Rubric.pdf), the highest score of 5 indicates a solution that clearly explains the reasons for predictions made using the validation data, whereas a score of 1 indicates a "black box" solution. However, this is only one part of the scoring rubric, so it is up to you to determine what type of model is best for you. 
 
 ## May we include a commercially available product in our solution?
