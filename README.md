@@ -45,7 +45,7 @@ Below are the instructions for your Github submission. Everything must be submit
 2. Build your solution according to the Submission Requirements below and commit it to your fork.
 3. When you are ready to submit your solution, [create a pull request](https://help.github.com/en/articles/creating-a-pull-request-from-a-fork) from your fork to this repository (GSA/ai-ml-challenge-2020; base: master).
 4. Name your pull request “TeamName Submission” and feel free to write a short description of your submission. Make sure to uncheck “Allow edits by maintainers” before creating your pull request.
-5. In addition to the uploaded portion, participants also must send an email for the submission. See the [challenge website](https://www.challenge.gov/challenge/GSA-artificial-intelligence-AI-machine-learning-ML-challenge/) for full details.
+5. In addition to the uploaded portion, participants also must send an email for the submission. See the [challenge website](https://www.challenge.gov/challenge/GSA-artificial-intelligence-AI-machine-learning-ML-challenge/) for full details. Examples of the email items include: [Solution Description Document](reference/sample_email_items/SampleSubmission_Solution_Description_Document.docx) and [Solution Demonstration](reference/sample_email_items/SampleSubmission_Solution_Demonstration.pdf)
  
 ## Github Submission Requirements:
  
