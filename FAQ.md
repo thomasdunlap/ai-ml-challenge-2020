@@ -1,10 +1,6 @@
 # AI/ML Challenge 2020 - Frequently Asked Questions
 
 
-- [Is there a restriction on what platform/interface the solution uses?](#is-there-a-restriction-on-what-platform/interface-the-solution uses?)
-- [What is your preference for the solution model type, such as “black box” models?](#what-is-your-preference-for-the-solution-model-type-such-as-black-box-models?
-
-
 ## Is there a restriction on what platform/interface the solution uses?
 
 We have no restrictions on the technology used in the solution other than those listed in the [challenge website](https://www.challenge.gov/challenge/GSA-artificial-intelligence-AI-machine-learning-ML-challenge/).
