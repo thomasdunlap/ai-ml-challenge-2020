@@ -29,3 +29,22 @@ Yes!
 
 ## Can we ask questions to subject matter experts about EULAs?
 Please direct any questions surrounding EULA classification to [challenge2020@gsa.gov](mailto:challenge2020@gsa.gov), and we will forward your question(s) to the relevant legal experts.
+
+## How did you choose the metrics (F1 Score, Brier Score) to score submissions?
+Below is more information about the F1 Score and Brier Scores as metrics for scoring:
+ 
+### Brier Score
+- Good for binary outcomes
+- Answers the question: “How large was the error in the prediction?”
+- Smaller scores (closer to zero) indicate better forecasts
+
+### F1 Score
+- Combines precision and recall into one metric
+- Appropriate for imbalanced binary classification
+- Best value at 1 and worst score at 0
+
+## Who can participate in the challenge?
+We welcome many types of solvers to participate, including individuals, teams, students, commercial companies, startups, and others. Please refer to the ‘Eligibility to Participate’ section of the [challenge website](https://www.challenge.gov/challenge/GSA-artificial-intelligence-AI-machine-learning-ML-challenge/) to see if you are eligible to participate. 
+
+## How do we calculate the self-reported metrics of our solution?
+You should split the training data provided into a training dataset and a test dataset. You should use the test dataset to calculate your self-reported metrics using the appropriate methods of calculating those metrics. You should decide the portion of the data to set aside as test data based on your own expertise.
