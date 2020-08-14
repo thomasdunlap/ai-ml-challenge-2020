@@ -1,0 +1,4 @@
+env/
+__pycache__
+app/static/uploads/**
+.ipynb_checkpoints/
