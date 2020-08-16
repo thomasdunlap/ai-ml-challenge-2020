@@ -43,6 +43,7 @@ Keras-Preprocessing==1.1.2
 kiwisolver==1.2.0
 libtiff==0.4.2
 llvmlite==0.33.0
+lxml==4.5.2
 Markdown==3.2.2
 MarkupSafe==1.1.1
 matplotlib==3.3.0
@@ -80,6 +81,7 @@ pyparsing==2.4.7
 pyrsistent==0.16.0
 pytesseract==0.3.5
 python-dateutil==2.8.1
+python-docx==0.8.10
 pytz==2020.1
 PyWavelets==1.1.1
 PyYAML==5.3.1
