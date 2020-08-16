@@ -2,17 +2,21 @@ import cv2
 import glob
 import pytesseract
 import time
+import docx
 from transformers import pipeline
 from transformers import PretrainedConfig, TFBertForSequenceClassification, BertTokenizer
 
-
+UPLOAD_FOLDER = '/static/uploads/'
 MODEL_FOLDER = './static/models/'
-UPLOAD_PATH = './static/uploads/'
-
-tokenizer = BertTokenizer.from_pretrained('bert-base-uncased', do_lower_case=True, add_special_tokens=True,
-                                                max_length=512, pad_to_max_length=True)
+ALLOWED_EXTENSIONS = set(['pdf', 'doc', 'docx'])
 config = PretrainedConfig.from_json_file(MODEL_FOLDER + 'config.json')
 model = TFBertForSequenceClassification.from_pretrained(MODEL_FOLDER)
+tokenizer = BertTokenizer.from_pretrained('bert-base-uncased',
+                                        do_lower_case=True,
+                                        add_special_tokens=True,
+                                        max_length=512,
+                                        pad_to_max_length=True)
+
 
 
 def ocr_core(filename):
@@ -33,10 +37,24 @@ def multi_doc_pipeline(filename):
         extracted_text = ocr_core(im_path)
         print('text extracted')
         for clause in extracted_text.split('\n\n'):
+            if len(clause) < 4:
+                continue
+
             prediction = pipeline('sentiment-analysis', model=model, tokenizer=tokenizer, config=config)(clause)
             print(prediction)
-            yield clause
+            yield clause, prediction
             time.sleep(1)                                    
+
+def docx_pipeline(docx_path):
+    document = docx.Document(docx_path)
+    for paragraph in document.paragraphs: 
+        if len(paragraph.text) < 4:
+            continue
+        prediction = pipeline('sentiment-analysis', model=model, tokenizer=tokenizer, config=config)(paragraph.text)
+        print(prediction)
+        
+        yield paragraph.text, prediction
+        time.sleep(1)
 
 if __name__ == '__main__':
     print(ocr_core('test'))
