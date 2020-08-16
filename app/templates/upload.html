@@ -22,7 +22,13 @@
     {% endif %}
     
     {% if extracted_text %}
-      <p> The extracted text from the image above is: <b> {{ extracted_text }} </b></p>
+    <!-- <p> The extracted text from the image above is: <b> {{ extracted_text }} </b></p> -->
+      <p><b> Your extracted text looks like: </b></p>
+      {% for text in extracted_text %}
+	{% for clause in text.split('\n\n') %}
+          <p> {{ clause }} </p>
+        {% endfor %}
+      {% endfor %}
     
     {% else %}
       The extracted text will be displayed here
