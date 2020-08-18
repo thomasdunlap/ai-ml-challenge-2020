@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+{% block content %}
+
+    <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="#">Tool Breakdown</a>
+              <small class="text-muted">August 16 2020</small>
+            </div>
+            <h1><a class="article-title" href="#">Document Analysis Upload: </a></h1>
+            <p class="article-content">Our document analysis tool which utilizes computer vision as well as advanced
+            NLP techniques to identify the text in uploaded documents break them down even in an image that has no text elements
+            to copy and paste and renders out it's idnetified results for you with the click of a button.</p>
+            <br/>
+          </div>
+    </article>
+
+    {% if msg %}
+    <h1>{{ msg }}</h1>
+    {% endif %}
+
+    <h2><a class="article-title" href="#"> Upload new File : </a></h2>
+    <form method=post enctype=multipart/form-data>
+      <p>
+          <input class="btn btn-primary" type=file name=file>
+          <br/>
+          <input class="btn btn-success" type=submit value=Upload>
+      <p/>
+    </form>
+
+    <br/>
+    <br/>
+
+   <h2><a class="article-title" href="#"> Result : </a></h2>
+    {% if img_src %}
+      <img src="{{ img_src }}">
+    {% endif %}
+
+    {% if extracted_text %}
+    <p> The extracted text from the image above is: <b> {{ extracted_text }} </b></p>
+    {% for text, pred, prob in extracted_text %}
+    <p> {{ text }} <b>{{ pred }}</b> {{ prob }}</p>
+      
+    {% endfor %}
+    {% else %}
+      The extracted text will be displayed here
+    {% endif %}
+
+    <div class="col-lg-10">
+      <textarea class="form-control" rows="3" id="textArea" style="height: 300px; width: 800px;">
+
+      </textarea>
+      <span class="help-block">A block of well contained text </span>
+    </div>
+   <br/>
+
+    <br/>
+    <br/>
+{% endblock content %}
