@@ -84,8 +84,6 @@ def account():
 def contact():
     return render_template('contact.html', title='Contact Us')
 
-
-
 @app.route('/upload', methods=['GET', 'POST'])
 def upload_page():
     print("Running upload page")
@@ -116,32 +114,3 @@ def upload_page():
     elif request.method == 'GET':
         return render_template('upload.html')
 
-@app.route('/tupload', methods=['GET', 'POST'])
-def tupload_page():
-    print("Running upload page")
-    if request.method == 'POST':
-        # check if the post request has the file part
-        if 'file' not in request.files:
-            return render_template('tupload.html', msg='No file selected')
-        file = request.files['file']
-        # if user does not select file, browser also
-        # submit a empty part without filename
-        if file.filename == '':
-            return render_template('tupload.html', msg='No file selected')
-
-        if file and allowed_file(file.filename):
-            file_path = os.path.join(os.getcwd() + UPLOAD_FOLDER, file.filename)
-            file.save(file_path)
-            if file.filename[-3:] == 'pdf':
-                print("PDF Pipeline")
-                convert_to_image(file_path, file_path[:-4])
-                print(file_path)
-                extracted_text = multi_doc_pipeline(file_path)
-            else:
-                print("Docx Pipeline")
-                extracted_text = docx_pipeline(file_path)
-
-            return Response(stream_template('tupload.html', extracted_text=extracted_text))
-
-    elif request.method == 'GET':
-        return render_template('tupload.html')

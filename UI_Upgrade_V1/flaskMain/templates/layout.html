@@ -11,9 +11,9 @@
 
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap_Spacelab.css') }}">
     {% if title %}
-         <title>AI/ML Challenge 2020- {{title}}</title>
+         <title>EULA Validation Tool - {{title}}</title>
     {% else %}
-        <title>AI/ML Challenge 2020</title>
+        <title>EULA Validation Tool</title>
     {% endif %}
 </head>
 <body>
@@ -21,7 +21,7 @@
 <header class="site-header">
   <nav class="navbar navbar-expand-md navbar-inverse">
     <div class="container">
-      <a class="navbar-brand mr-4" href="/">AI/ML EULA Challenge 2020</a>
+      <a class="navbar-brand mr-4" href="/">EULA Validation Tool</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle"
               aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -32,7 +32,7 @@
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Tools </a>
                         <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 42px, 0px);">
                           <div class="dropdown-divider"></div>
-                          <a class="dropdown-item" href="{{url_for('upload_page')}}">Document Analysis Upload</a>
+                          <a class="dropdown-item" href="{{url_for('upload_page')}}">EULA Validation Upload</a>
                         </div>
                   </li>
               <li><a class="nav-item nav-link" href="">        </a><li>
