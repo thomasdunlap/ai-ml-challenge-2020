@@ -4,3 +4,4 @@ app/static/uploads/**
 .ipynb_checkpoints/
 *.h5
 *DS_Store
+*uploads/**

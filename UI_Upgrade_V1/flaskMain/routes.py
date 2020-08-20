@@ -113,4 +113,3 @@ def upload_page():
 
     elif request.method == 'GET':
         return render_template('upload.html')
-

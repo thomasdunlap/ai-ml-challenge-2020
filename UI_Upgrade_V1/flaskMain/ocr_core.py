@@ -27,7 +27,9 @@ def ocr_core(filename):
     print(filename)
     im = cv2.imread(filename)
     img_rgb = cv2.cvtColor(im, cv2.COLOR_BGR2RGB)
+    print("Pytesseract")
     text = pytesseract.image_to_string(img_rgb, config='-c preserve_interword_spaces=1')
+    print('text returned')
     return text  # Then we will print the text in the images
 
 def multi_doc_pipeline(filename):
@@ -46,7 +48,7 @@ def multi_doc_pipeline(filename):
             accept = label_converter[prediction[0]['label']]
             prob = prediction[0]['score']
 
-            yield clause, accept, prob
+            yield clause, accept, round(prob * 100., 2)
             time.sleep(1)
 
 def docx_pipeline(docx_path):
@@ -58,7 +60,7 @@ def docx_pipeline(docx_path):
         print(prediction)
         accept = label_converter[prediction[0]['label']]
         prob = prediction[0]['score']
-        yield paragraph.text, accept, prob
+        yield paragraph.text, accept, round(prob * 100., 2)
         time.sleep(1)
 
 if __name__ == '__main__':
