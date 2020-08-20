@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+{% block content %}
+
+    <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+
+            </div>
+            <h1><a class="article-title" href="#">About the EULA Classification Tool </a></h1>
+            <p class="article-content">The purpose of this tool is to automate the evaluation of EULA documents for
+            acceptability.</p>
+            <p>The tool will:</p>
+                 <ul>
+                   <li>Parse and break the document into clauses</li>
+                	 <li>Uses the latest in Natural Language Processing to predict whether each clause is acceptable or unacceptable</li>
+                   <ul><li>BERT, a Deep Learning Transformer model </li></ul>
+                   <li>Give a confidence level (probability) that the prediction is correct</li>
+                 </ul>
+	    <h1><a class="article-title" href="#">Instructions</a></h1>
+	    <p>Browse your computer and select your EULA document.</p>
+          </div>
+    </article>
+
+    {% if msg %}
+    <h1>{{ msg }}</h1>
+    {% endif %}
+
+    <h2><a class="article-title" href="#"> Upload New File </a></h2>
+    <form method=post enctype=multipart/form-data>
+      <p>
+          <input class="btn btn-primary" type=file name=file>
+
+          <p>(Word documents and PDFs accepted)</p>
+
+          <input class="btn btn-success" type=submit value=Upload>
+      <p/>
+    </form>
+   <p>(PDFs may take a few seconds, Docx should be fairly immediate)</p>
+   <h2><a class="article-title" href="#"> Result </a></h2>
+
+    {% if extracted_text %}
+    {% for text, pred, prob in extracted_text %}
+         {% if pred == 'ACCEPTABLE'%}
+               <b> <p style="color:green;">{{ pred }} &emsp;<span style="color:black;">&emsp; Confidence Score: {{ prob }}%</span></p>
+                <p>{{ text }}</p>
+            {% else %}
+               <b> <p style="color:red;">{{ pred }} &emsp;<span style="color:black;">&emsp; Confidence Score: {{ prob }}%</span></p>
+               <p>{{ text }}</p>
+
+            {% endif %}
+    {% endfor %}
+    <div class="col-lg-10">
+      <textarea class="form-control" rows="3" id="textArea" style="height: 200px; width: 800px;">
+      </textarea>
+      <span class="help-block">All Unacceptable targets found </span>
+    </div>
+   <br/>
+
+    {% else %}
+      The extracted text will be displayed here
+    {% endif %}
+    <br/>
+    <br/>
+{% endblock content %}

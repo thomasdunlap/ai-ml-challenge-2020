@@ -1,5 +1,4 @@
 absl-py==0.9.0
-numpy==1.18.5
 argon2-cffi==20.1.0
 astropy==4.0.1.post1
 astunparse==1.6.3
@@ -9,13 +8,13 @@ bcrypt==3.1.4
 bleach==3.1.5
 blinker==1.4
 cachetools==4.1.1
-certifi==2016.2.28
+certifi==2020.6.20
 cffi==1.11.5
 chardet==3.0.4
 click==6.7
 confuse==1.3.0
 cycler==0.10.0
-dataclasses==0.6
+dataclasses==0.7
 decorator==4.4.2
 defusedxml==0.6.0
 entrypoints==0.3
@@ -62,6 +61,7 @@ nbformat==5.0.7
 networkx==2.4
 notebook==6.1.1
 numba==0.50.1
+numpy==1.18.5
 oauthlib==3.1.0
 opencv-python==4.4.0.40
 opt-einsum==3.3.0
@@ -75,6 +75,7 @@ pexpect==4.8.0
 phik==0.10.0
 pickleshare==0.7.5
 Pillow==5.3.0
+pkg-resources==0.0.0
 prometheus-client==0.8.0
 prompt-toolkit==3.0.5
 protobuf==3.12.4
@@ -97,11 +98,12 @@ requests==2.24.0
 requests-oauthlib==1.3.0
 rsa==4.6
 sacremoses==0.0.43
+scikit-learn==0.23.2
 scipy==1.4.1
 seaborn==0.10.1
 Send2Trash==1.5.0
 sentencepiece==0.1.91
-six==1.11.0
+six==1.15.0
 SQLAlchemy==1.2.7
 tangled-up-in-unicode==0.0.6
 tensorboard==2.3.0
@@ -111,6 +113,7 @@ tensorflow-estimator==2.3.0
 termcolor==1.1.0
 terminado==0.8.3
 testpath==0.4.4
+threadpoolctl==2.1.0
 tokenizers==0.8.1rc1
 tornado==6.0.4
 tqdm==4.48.2
