@@ -6,7 +6,12 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV TERM linux
 
 RUN apt-get update -y
-RUN apt-get install -y python3.7 python3-pip python3-venv build-essential
+RUN apt-get install -y python3.7 python3-pip build-essential && \
+    apt-get install python3-venv -y
+
+RUN python3 -m venv /venv
+RUN which python3.7
+
 
 RUN apt-get update -yqq && \
 apt-get install -yqq \
@@ -22,6 +27,13 @@ RUN /fixpolicy.sh && rm /fixpolicy.sh
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
 
+COPY ./requirements.txt /requirements.txt
+
+RUN /venv/bin/pip install --upgrade pip
+RUN /venv/bin/pip install numpy==1.18.5
+RUN /venv/bin/pip install -r requirements.txt
+
+
 RUN mkdir -p /workdir && \
 chmod -R a+rwX /workdir
 
@@ -33,13 +45,6 @@ USER ${USERNAME}
 
 WORKDIR /workdir
 
-COPY ./requirements.txt /workdir/requirements.txt
-
-RUN python3.7 -m venv env
-RUN source env/bin/activate
-RUN pip install --upgrade pip
-RUN pip install numpy==1.18.5
-RUN pip install -r requirements.txt
 
 
 COPY UI_Upgrade_V1 /workdir
